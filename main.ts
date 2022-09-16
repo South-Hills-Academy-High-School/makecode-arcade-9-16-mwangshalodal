@@ -93,6 +93,13 @@ foody = 60
 vx = 1
 vy = 0
 game.onUpdate(function () {
+    for (let value of snakebody) {
+        if (!(value == snakebody[0]) && snakehead.overlapsWith(value)) {
+            game.over(false)
+        }
+    }
+})
+game.onUpdate(function () {
     snakehead.setPosition(snakeheadx + 2, snakeheady + 2)
     snakefood.setPosition(foodx + 2, foody + 2)
     if (snakeheadx % 10 == 0 && snakeheady % 10 == 0) {
